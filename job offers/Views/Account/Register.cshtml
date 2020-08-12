@@ -1,0 +1,77 @@
+﻿@model WebApplication1.Models.RegisterViewModel
+@{
+    ViewBag.Title = "Register";
+}
+
+<h2>@ViewBag.Title</h2>
+
+@using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    @Html.AntiForgeryToken()
+    <h4>Create a new account</h4>
+    <hr />
+    @Html.ValidationSummary("", new { @class = "text-danger" })
+
+    <!--username-->
+    <div class="form-group">
+        @Html.LabelFor(Regmodel => Regmodel.Name, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(Regmodel => Regmodel.Name, new { @class = "form-control" })
+        </div>
+    </div>
+
+    <!--Nationality-->
+    <div class="form-group">
+        @Html.LabelFor(Regmodel => Regmodel.Nationality, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(Regmodel => Regmodel.Nationality, new { @class = "form-control" })
+        </div>
+    </div>
+
+    <!--usertype-->
+    <div class="form-group">
+        @Html.LabelFor(Regmodel => Regmodel.UserType, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.DropDownList("UserType",null,new {@class = "form-control" })
+        </div>
+    </div>
+
+    <!--phone number-->
+    <div class="form-group">
+        @Html.LabelFor(Regmodel => Regmodel.Phonenumber, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(Regmodel => Regmodel.Phonenumber, new { @class = "form-control" })
+        </div>
+    </div>
+
+    <!--email-->
+    <div class="form-group">
+        @Html.LabelFor(Regmodel => Regmodel.Email, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(Regmodel => Regmodel.Email, new { @class = "form-control" })
+        </div>
+    </div>
+
+    <!--password-->
+    <div class="form-group">
+        @Html.LabelFor(Regmodel => Regmodel.Password, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.PasswordFor(Regmodel => Regmodel.Password, new { @class = "form-control" })
+        </div>
+    </div>
+
+    <!--confairm password-->
+    <div class="form-group">
+        @Html.LabelFor(Regmodel => Regmodel.ConfirmPassword, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.PasswordFor(Regmodel => Regmodel.ConfirmPassword, new { @class = "form-control" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" class="btn btn-success" value="Register" />
+        </div>
+    </div>
+}
+

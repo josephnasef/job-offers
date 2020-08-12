@@ -1,0 +1,36 @@
+﻿.image-size {
+    font-size: 90px ;
+    padding-top: 20px;
+    padding-left: 20px;
+}
+
+.navbar-iuser
+{
+    padding:10px;
+    width:350px;
+    padding-bottom:0;
+}
+.font-size {
+    font-size: 30px;
+
+}
+.main {
+    transition: all .8s;
+}
+
+.main:hover {
+    
+    font-size: 20px
+}
+.mybtn {
+    padding: 14px 19px !important;
+    margin-right: 5px !important;
+}
+    .mybtn:hover {
+        border-radius: 4px !important;
+    }
+.hight {
+    min-height: 280px !important;
+    max-height:280px !important;
+    width:24% !important;
+}

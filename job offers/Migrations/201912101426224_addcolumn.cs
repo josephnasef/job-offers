@@ -1,0 +1,18 @@
+namespace job_offers.Migrations
+{
+    using System;
+    using System.Data.Entity.Migrations;
+    
+    public partial class addcolumn : DbMigration
+    {
+        public override void Up()
+        {
+            AddColumn("dbo.AspNetUsers", "UserType", add => add.String());
+        }
+        
+        public override void Down()
+        {
+            DropColumn("dbo.AspNetUsers", "UserType");
+        }
+    }
+}

@@ -1,0 +1,93 @@
+﻿@using Microsoft.AspNet.Identity
+@using WebApplication1.Models;
+
+@if (Request.IsAuthenticated)
+{
+    using (Html.BeginForm("LogOff", "account", FormMethod.Post, new { id = "LogOff" }))
+    {
+        var db = new ApplicationDbContext();
+        var UserId = User.Identity.GetUserId();
+        var CurrentUser = db.Users.Where(a => a.Id == UserId).SingleOrDefault();
+        <!--this is function to save web site from hacked -->
+        @Html.AntiForgeryToken();
+        <ul class="nav navbar-nav navbar-right">
+
+            <li class="dropdown" >
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    <span class="glyphicon glyphicon-user"> </span>
+                    <strong> welcome : @CurrentUser.UserName </strong>
+                    <span class="glyphicon glyphicon-chevron-down "> </span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li>
+                        <div class="navbar-iuser">
+                            <div class="row ">
+                                <div class="col-lg-4 padding-all-20">
+                                    <p class="text-center">
+                                        <span class="glyphicon glyphicon-user image-size  "></span>
+                                    </p>
+                                </div>
+
+                                <div class=" col-xs-offset-1 col-lg-7">
+                                    <p class="text-left ">
+                                        <strong class="font-size"> @CurrentUser.UserName</strong>
+                                    </p>
+                                </div>
+
+
+                                <div class="col-xs-offset-1 col-lg-6">
+                                    @if (CurrentUser.UserType == "author")
+                                    {
+                                        <a href="~/Home/GetJobsByPublisher" class="btn btn-success btn-block"  target="_blank">Jobs Posted By You </a>
+                                        <a href="~/jobs/Create" class="btn btn-info btn-block" target="_blank">Post New Job </a>
+                                    }
+                                    @if (CurrentUser.UserType == "admin")
+                                    {
+                                        <a href="~/Home/GetJobsByPublisher" class="btn btn-success btn-block"  target="_blank">Jobs Posted By You </a>
+                                        <a href="~/jobs/Create" class="btn btn-info btn-block" target="_blank">Post New Job </a>
+                                        <a href="~/JobsCategories/index" class="btn btn-danger btn-block" target="_blank">Jobs Categories </a>
+                                        <a href="~/Roles/index" class="btn btn-warning btn-block" target="_blank">Role</a>
+                                        <a href="~/Home/GetJobsByUser" class="btn btn-success btn-block"  target="_blank">jobs you applied to </a>
+                                    }
+                                    else
+                                    {
+                                        <a href="~/Home/GetJobsByUser" class="btn btn-success btn-block"  target="_blank">jobs you applied to </a>
+                                    }
+                                    <a href="~/Account/Editprofile" class="btn btn-primary btn-block"  target="_blank">Edit Account</a>
+
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="divider"> </li> 
+                    <li>
+                        <div class="">
+                            <div class="row">
+                                <div class=" col-xs-offset-1 col-lg-10">
+                                    <p>
+                                        <a href="javascript:document.getElementById('LogOff').submit()" class="btn btn-danger btn-block  ">Sing Out</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </li> 
+                </ul>
+            </li> 
+            @*<li>
+                @Html.ActionLink("welcome dear : " + User.Identity.GetUserName(), "index", "manage")
+            </li>
+            <li>
+                <a href="javascript:document.getElementById('LogOff').submit()">Sing Out</a>
+            </li>*@
+        </ul>
+    }
+}
+else {
+<ul class="nav navbar-nav navbar-right">
+    <li><a href="~/Account/Login"><i style="font-size:24px" class="fa fa-sign-out padding-right-5" aria-hidden="true"> </i> <span> Sing in </span> </a></li>
+    <li>
+        <a href="~/Account/Register"> <i style="font-size:24px" class="fa fa-address-book padding-right-5 " aria-hidden="true"></i>  Sing Up </a>
+    </li>
+</ul>
+
+}

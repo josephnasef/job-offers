@@ -1,0 +1,47 @@
+﻿@model IEnumerable<job_offers.Models.ApplyForJob>
+
+@{
+    //Get Jobs By User
+    ViewBag.Title = "Get Jobs ";
+    Layout = "~/Views/shared/_MainLayout1.cshtml";
+}
+
+<h2>My Applied Jobs</h2>
+
+<table class="table table-striped table-bordered table-hover ">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.job.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Message)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ApplyDate)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.job.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Message)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ApplyDate)
+            </td>
+
+            <td>
+                @Html.ActionLink("Edit", "EdediteOfMyJobsit", new { id = item.Id },new {@class = "btn btn-success mybtn" }) |
+                @Html.ActionLink("Details", "DetailsOfJob", new { id = item.Id },new {@class = "btn btn-info mybtn" }) |
+                @Html.ActionLink("Delete", "Deletemyapply", new { id = item.Id },new {@class = "btn btn-danger mybtn" })
+            </td>
+        </tr>
+    }
+
+</table>
+

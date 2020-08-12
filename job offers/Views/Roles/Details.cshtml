@@ -1,0 +1,21 @@
+﻿@model Microsoft.AspNet.Identity.EntityFramework.IdentityRole
+
+<div>
+    <h4>RoleViewModel</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+    </dl>
+</div>
+<ul class="nav navbar-nav padding-all-10">
+    <li>   @Html.ActionLink("Edit", "Edit", new { id = Model.Id }, new { @class = "btn btn-info mybtn" })</li>
+
+    <li>@Html.ActionLink("Back to List", "Index", null, new { @class = "main" })</li>
+</ul>

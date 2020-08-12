@@ -1,0 +1,99 @@
+﻿@model IEnumerable<job_offers.Models.JobsViewModel>
+
+@{
+    //GetJobsByPublisher
+    ViewBag.Title = "Get Jobs ";
+    Layout = "~/Views/shared/_MainLayout1.cshtml";
+}
+
+<h2>Get who apply for your Jobs</h2>
+
+@foreach (var gr in Model)
+{
+<h1 style="font-size:30px ; " class="text-danger" > @gr.Jobtitle </h1>
+    <table class="table table-bordered table-hover ">
+        <tr>
+            <th> Name </th>
+            <th> Message </th>
+            <th> Date </th>
+
+        </tr>
+        @foreach (var item in gr.Items)
+        {
+    <tr>
+        <td>
+            @item.user.UserName
+        </td>
+        <td>
+            @item.Message
+        </td>
+        <td>
+            @item.ApplyDate
+        </td>
+    </tr>
+        }
+    </table>
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@*<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.job.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.user.UserName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Message)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ApplyDate)
+        </th>
+
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <th>
+                @Html.DisplayFor(modelItem => item.job.Title)
+            </th>
+            <td>
+                @Html.DisplayFor(modelItem => item.user.UserName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Message)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ApplyDate)
+            </td>
+        </tr>
+    }
+
+</table>*@

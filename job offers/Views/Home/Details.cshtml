@@ -1,0 +1,57 @@
+﻿@model job_offers.Models.job
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/shared/_MainLayout1.cshtml";
+}
+
+    <h2>Job Details</h2>
+
+<div>
+    
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.category.CategoryName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.category.CategoryName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.JobContent)
+        </dt>
+
+        <dd>
+            @Html.Raw(HttpUtility.HtmlDecode(Html.DisplayFor(modelitem => modelitem.JobContent).ToString()))
+            @*@Html.DisplayFor(model => model.JobContent)*@
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.JobImage)
+        </dt>
+
+        <dd>
+            <img src="~/uploads/@Html.DisplayFor(model=>model.JobImage)" class="thumbnail" style="width:125px" alt="@Html.DisplayFor(model=>model.JobImage)" />
+        </dd>
+
+    </dl>
+</div>
+<div >
+    <ul class="nav navbar-nav padding-all-10 " >
+
+        <li>@Html.ActionLink("apply", "apply", null, new { id = Model.ID }, new { @class = "btn btn-success mybtn" })</li>
+
+        <li> @Html.ActionLink("Back to Home Page ", "Index", null, new { @class = " main" })</li>
+
+    </ul>
+</div>

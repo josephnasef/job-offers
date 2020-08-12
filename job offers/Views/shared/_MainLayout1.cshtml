@@ -1,0 +1,187 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial scale=1" />
+    <title>@ViewBag.Title</title>
+    <link href="~/content/StyleSheet-color.css" rel="stylesheet" />
+    <link href="~/content/bootstrap.min.css" rel="stylesheet" />
+
+    <link href="~/content/StyleSheetoverloadbootstrap.css" rel="stylesheet" />
+    <link href="~/content/StyleSheet-color.css" rel="stylesheet" />
+
+    <link href="~/content/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/content/StyleSheet1.css" rel="stylesheet" />
+    <link href="~/content/padding margin.css" rel="stylesheet" />
+</head>
+<body>
+    <div>
+
+        <!-- start navbar-->
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#"><img src="~/images/searching-icon-16.jpg copy.png" /></a>
+                    
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="~/home/index"> Home <span class="sr-only">(current)</span></a></li>
+                        
+                        <li><a href="~/home/About">About</a></li>
+                        <li><a href="~/home/contact">call us</a></li>
+                    </ul>
+
+                    <div class="navbar-form navbar-left">
+                        @using (Html.BeginForm("search", "Home", FormMethod.Post))
+                        {
+                            <input type="text" name="SearchName" id="SearchName" class="form-control" placeholder="Search">
+                            @*<input type="submit" name="searchname" class="btn btn-default"></*@
+                        }
+                    </div>
+                   
+                    <!-- start partial login-->
+                    @Html.Partial("_login")
+
+
+                </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+        </nav>
+        <!--end navbar-->
+        <div class="container">
+            <div class="row">
+                @RenderBody()
+            </div>
+        </div>
+        <!--footer-->
+        <!--======================footer start======================-->
+        <footer class="webintern-footer">
+            <div class="webintern-footer-inner">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-6 col-md-3 ">
+                            <h4 class="webintern_footer_title h5">
+                                <small>About Us</small>
+                            </h4>
+
+                            <a class="webintern-footer-logo" href="~/home/About">
+                                
+                                <img class="img-responsive" src="~/images/searching-icon-16.jpg copy.png" style="width:80px;" alt="">
+                            </a>
+                            <div class="simple-text dark padding-sm">
+                                <p>
+                                    Our goal we try to connect you to the nearest suitable
+                                    job opportunity for you and if you are a company we are trying
+                                    to provide you with the best skills we have we wish you success and
+                                    prosperity.
+                                </p>
+                            </div>
+                            <div class="empty-space xs-25 sm-25"></div>
+                        </div>
+                        <div class="col-sm-6 col-md-2 footer-2">
+                            <!-- webintern_footer_title -->
+                            <h4 class="webintern_footer_title h5"><small>Quick Links</small></h4>
+                            <ul class="webintern-footer-list">
+                                <li><a href="~/home/index">Home</a></li>                                
+                                <li><a href="~/home/about"> About </a></li>
+                                <li><a href="~/home/contact"> call us </a></li>
+                                <li><a href="~/Account/login"> Sing in </a></li>
+                                <li><a href="~/Account/register">Sing Up</a></li>
+                            </ul>
+                            <div class="empty-space xs-25 sm-25"></div>
+                        </div>
+                        <div class="col-sm-6 col-md-4 footer-3">
+                            
+                               
+                                <h3 class="webintern_footer_title h5"><small> Connect with us </small> </h3>
+                                <ul class="tt-socail">
+                                    <li>
+                                        <a href="#"> <i class="fa fa-globe" style="font-size:33px" aria-hidden="true"></i></a>
+                                    </li>
+                                    <li>
+                                        <div> <p class="white-text" style="font-size:13px"> Gosephnasef@gamil.com</p></div>
+                                    </li>
+                                    
+                                </ul>
+                                <ul class="tt-socail">
+                                    <li>
+                                        <a href="#"><i class="fa fa-envelope-o" style="font-size:20px" aria-hidden="true"></i></a>
+                                    </li>
+                                    <li>
+                                        <div> <p class="white-text" style="font-size:13px"> Gosephnasef@gamil.com</p></div>
+                                    </li>
+                                </ul>
+                                <ul class="tt-socail">
+                                    <li>
+                                        <a href="#"><i class="fa fa-phone" style="font-size:20px" aria-hidden="true"></i></a>
+                                    </li>
+                                    <li>
+                                        <div> <p class="white-text">01287811957</p></div>
+                                    </li>
+                                </ul>
+                          
+                        </div>
+                        <div class="col-xs-12 col-md-3 col-sm-5">
+                            <div class="marg-sm-b30"></div>
+                            <!-- webintern_footer_title -->
+                            <h4 class="webintern_footer_title h5"><small>Subscribe Newsletter</small></h4>
+                            <div class="empty-space marg-lg-b15"></div>
+                            <!--
+                            <div class="simple-text last dark ">
+                            <p>Get latest updates and offers.</p>
+                            </div>
+                            -->
+                            <div class="empty-space marg-lg-b15"></div>
+                            <!-- TT-SUBSCRIBE -->
+                            <form method="post">
+                                <div class="tt-subscribe">
+                                    <input type="text" required="" placeholder="Enter your email">
+                                    <div class="tt-subscribe-submit">
+                                        <i class="fa fa-envelope" aria-hidden="true"></i>
+                                        <input type="submit" value="">
+                                    </div>
+                                </div>
+                            </form>
+                            <div class="empty-space marg-lg-b30"></div>
+                            <!-- TT-SOCAIL -->
+                            <ul class="tt-socail">
+                                <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                                <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                                <li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+                            </ul>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tt-copy">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="tt-copy-left">Copyright © J-websits 2019. All rights reserved. </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="tt-copy-right">
+                                Created by: J-websits
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!--end of footer-->
+        <script src="~/scripts/jquery-3.4.1.min.js"></script>
+        <script src="~/scripts/bootstrap.min.js"></script>
+    </div>
+</body>
+</html>

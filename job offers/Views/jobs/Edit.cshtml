@@ -1,0 +1,86 @@
+﻿@model job_offers.Models.job
+
+@{
+    ViewBag.Title = "jobs Edit";
+    Layout = "~/Views/shared/_MainLayout1.cshtml";
+}
+<meta name="viewport" content="width=device-width, initial-scale=1 ">
+
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<h2>jobs Edit</h2>
+<div>
+
+</div>
+
+@using (Html.BeginForm("Edit", "jobs", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            <h4>jobs Edit</h4>
+            <div class="alert alert-danger " style="display:none" id="err-div">
+                <span id="view-err">
+
+                </span>
+            </div>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.ID)
+            @Html.HiddenFor(model => model.JobImage)
+
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.JobContent, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.JobContent, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.JobContent, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.JobImage, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <input type="file" name="upload" id="myImage" />
+                    @Html.ValidationMessageFor(model => model.JobImage, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.CategoryID, "CategoryID", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownList("CategoryID", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.CategoryID, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <ul class="nav navbar-nav padding-all-10">
+                        <li>
+                        <input type="submit" value="Save" class="btn btn-success mybtn" id="save" />
+                        </li>
+                        <li>
+                            @Html.ActionLink("Back to List", "Index", null, new { @class = "main" })
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    }
+}
+
+
+<script src="~/scripts/jquery.js"></script>
+<script src="~/scripts/myJQ/size-ext-emp edite job.js"></script>
+
+

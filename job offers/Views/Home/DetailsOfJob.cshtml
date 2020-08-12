@@ -1,0 +1,47 @@
+﻿@model job_offers.Models.ApplyForJob
+
+@{
+    ViewBag.Title = "Details Of Job";
+    Layout = "~/Views/shared/_MainLayout1.cshtml";
+}
+
+<h2>Details Of Job</h2>
+
+<div>
+    <h4>Apply For Job</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Message)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Message)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ApplyDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ApplyDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.job.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.job.Title)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    <ul class="nav navbar-nav padding-all-10">
+        <li>   @Html.ActionLink("Edit", "EdediteOfMyJobsit", new { id = Model.Id }, new { @class = "btn btn-info mybtn" })</li> 
+
+       <li> @Html.ActionLink("Back to List", "GetJobsByUser", null, new { @class = "main" })</li>
+    </ul>
+</p>
+
